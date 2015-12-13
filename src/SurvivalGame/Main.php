@@ -101,7 +101,7 @@ class Main extends PluginBase implements Listener{
 		$this->SetStatus=array();//设置状态
 		$this->all=0;//最大玩家数量
 		$this->config->save();
-		$this->getServer()->getLogger()->info(TextFormat::GREEN."[FSurvivalGame] Plugin loaded!");
+		$this->getServer()->getLogger()->info(TextFormat::GREEN."[SurvivalGames] Plugin loaded!");
 		//$this->getServer()->getLogger()->info(TextFormat::GREEN."[FSurvivalGame] 如果觉得好用可以给支付宝FENGberd@qq.com汇款任意数额来支持作者哦");
 		//$this->getServer()->getLogger()->info(TextFormat::RED."[FSurvivalGame] 本插件完全免费，如果你花了哪怕是一分钱来购买，我建议你多去我的世界pe吧逛逛");
 	}
@@ -127,7 +127,7 @@ class Main extends PluginBase implements Listener{
 				{
 					$this->gameStatus=0;
 					$this->lastTime=0;
-					$this->sendToAll("[SurvivalGame] Less than 2 players,stopped countdown");
+					$this->sendToAll("[SurvivalGames] Less than 2 players,stopped countdown");
 					/*foreach($this->players as $pl)
 					{
 						$p=$this->getServer()->getPlayer($pl["id"]);
@@ -149,13 +149,13 @@ class Main extends PluginBase implements Listener{
 		case "set":
 			if($this->config->exists("lastpos"))
 			{
-				$sender->sendMessage("[SurvivalGame] The game was set before,please use /fsg remove and try again.");
+				$sender->sendMessage("[SurvivalGames] The game was set before,please use /fsg remove and try again.");
 			}
 			else
 			{
 				$name=$sender->getName();
 				$this->SetStatus[$name]=0;
-				$sender->sendMessage("[SurvivalGame] Please tap the status sign.");
+				$sender->sendMessage("[SurvivalGames] Please tap the status sign.");
 			}
 			break;
 		case "remove":
@@ -171,10 +171,10 @@ class Main extends PluginBase implements Listener{
 			$this->config->remove("lastpos");
 			$this->config->save();
 			unset($this->sign,$this->pos1,$this->pos2,$this->pos3,$this->pos4,$this->pos5,$this->pos6,$this->pos7,$this->pos8,$this->lastpos);
-			$sender->sendMessage("[SurvivalGame] succeeded in deleting game settings");
+			$sender->sendMessage("[SurvivalGames] succeeded in deleting game settings");
 			break;
 		case "start":
-			$this->sendToAll("[SurvivalGame] Force start game...");
+			$this->sendToAll("[SurvivalGames] Force start game...");
 			$this->gameStatus=1;
 			$this->lastTime=5;
 			break;
@@ -314,14 +314,13 @@ class Main extends PluginBase implements Listener{
 		}
 		switch(strtolower(explode(" ",$event->getMessage())[0]))
 		{
-		case "/kill":
 		case "/lobby":
 			
 			break;
 		default:
 			$event->setCancelled();
-			$event->getPlayer()->sendMessage("[SurvivalGame] You are now in game,cannot use other commands");
-			$event->getPlayer()->sendMessage("[SurvivalGame] You can also use /kill or /lobby to exit game");
+			$event->getPlayer()->sendMessage("[SurvivalGames] You are now in game,cannot use other commands");
+			$event->getPlayer()->sendMessage("[SurvivalGames] You can also use /lobby to exit game");
 			break;
 		}
 		unset($event);
@@ -343,7 +342,7 @@ class Main extends PluginBase implements Listener{
 		    	if($this->PlayerIsInGame($player->getName()) && !$this->PlayerIsInGame($killer->getName()) && !$killer->isOp())
 		    	{
 		    		$event->setCancelled();
-		    		$killer->sendMessage("[SurvivalGame] PLEASE DO NOT INTERFERENCE THE GAME");
+		    		$killer->sendMessage("[SurvivalGames] PLEASE DO NOT INTERFERENCE THE GAME");
 		    		$killer->kill();
 		    	}
 		    }
@@ -366,9 +365,9 @@ class Main extends PluginBase implements Listener{
 				unset($this->players[$event->getEntity()->getName()]);
 				if(count($this->players)>1)
 				{
-					$this->sendToAll("[SurvivalGame] Player {$event->getEntity()->getName()} die");
-					$this->sendToAll("[SurvivalGame] Players :".count($this->players));
-					$this->sendToAll("[SurvivalGame] Last time :".$this->lastTime." sec");
+					$this->sendToAll("[SurvivalGames] Player {$event->getEntity()->getName()} die");
+					$this->sendToAll("[SurvivalGames] Players :".count($this->players));
+					$this->sendToAll("[SurvivalGames] Last time :".$this->lastTime." sec");
 				}
 				$this->changeStatusSign();
 			}
@@ -436,23 +435,23 @@ class Main extends PluginBase implements Listener{
 			case 10:
 			//case 20:
 			case 30:
-				$this->sendToAll("[SurvivalGame] The game will start in ".$this->lastTime." seconds");
+				$this->sendToAll("[SurvivalGames] The game will start in ".$this->lastTime." seconds");
 				break;
 			case 60:
-				$this->sendToAll(" [SurvialGame] The game will start in one minute");
+				$this->sendToAll(" [SurvivalGames] The game will start in one minute");
 				break;
 			case 90:
-				$this->sendToAll("[Survial Game] The game will start in one minute thirty seconds");
+				$this->sendToAll("[SurvivalGames] The game will start in one minute thirty seconds");
 				break;
 			case 120:
-				$this->sendToAll("[Survial Game] The game will start in two minutes");
+				$this->sendToAll("[SurvivalGames] The game will start in two minutes");
 				break;
 			case 150:
 				$this->sendToAll("[Survial Game] The game will start in two minutes thirty seconds");
 				break;
 			case 0:
 				$this->gameStatus=2;
-				$this->sendToAll("[Survial Game] The game begins");
+				$this->sendToAll("[SurvivalGames] The game begins");
 				$this->lastTime=$this->godTime;
 				$this->resetChest();
 				foreach($this->players as $key=>$val)
@@ -472,7 +471,7 @@ class Main extends PluginBase implements Listener{
 			if($this->lastTime<=0)
 			{
 				$this->gameStatus=3;
-				$this->sendToAll("[SurvialGame] You are now longer prohibited");
+				$this->sendToAll("[SurvivalGames] You are now longer prohibited");
 				$this->lastTime=$this->gameTime;
 				$this->resetChest();
 			}
@@ -481,11 +480,11 @@ class Main extends PluginBase implements Listener{
 		{
 			if(count($this->players)==1)
 			{
-				$this->sendToAll(" [Survial Game] Congratulations! You have won the game");
+				$this->sendToAll(" [SurvivalGames] Congratulations! You have won the game");
 				foreach($this->players as &$pl)
 				{
 					$p=$this->getServer()->getPlayer($pl["id"]);
-					Server::getInstance()->broadcastMessage("[Survial Game] Congratulates to".$p->getName()."for whom that has won the game");
+					Server::getInstance()->broadcastMessage("[SurvivalGames] Congratulates to".$p->getName()."for whom that has won the game");
 					$p->setLevel($this->signlevel);
 					$p->getInventory()->clearAll();
 					$p->setMaxHealth(25);
@@ -501,7 +500,7 @@ class Main extends PluginBase implements Listener{
 			}
 			else if(count($this->players)==0)
 			{
-				Server::getInstance()->broadcastMessage("[SurvialGames] The game ends for all players have been dead");
+				Server::getInstance()->broadcastMessage("[SurvivalGames] The game ends for all players have been dead");
 				$this->gameStatus=0;
 				$this->lastTime=0;
 				$this->clearChest();
@@ -520,10 +519,10 @@ class Main extends PluginBase implements Listener{
 			case 4:
 			case 5:
 			case 10:
-				$this->sendToAll("[SurvialGames] ".$this->lastTime."seconds left for the death match");
+				$this->sendToAll("[SurvivalGames] ".$this->lastTime."seconds left for the death match");
 				break;
 			case 0:
-				$this->sendToAll("[SurvialGames] the death match begins");
+				$this->sendToAll("[SurvivalGames] the death match begins");
 				foreach($this->players as $pl)
 				{
 					$p=$this->getServer()->getPlayer($pl["id"]);
@@ -641,7 +640,7 @@ class Main extends PluginBase implements Listener{
 			case 0:
 				if($event->getBlock()->getID() != 63 && $event->getBlock()->getID() != 68)
 				{
-					$player->sendMessage(TextFormat::GREEN."[Hunger Game] please choose a sign to click on");
+					$player->sendMessage(TextFormat::GREEN."[SurvivalGames] please choose a sign to click on");
 					return;
 				}
 				$this->sign=array(
@@ -745,8 +744,8 @@ class Main extends PluginBase implements Listener{
 				$this->config->set("pos7",$this->pos7);
 				$this->config->save();
 				$this->SetStatus[$username]++;
-				$player->sendMessage(TextFormat::GREEN."[Hunger Game] spawnpoint 7 created");
-				$player->sendMessage(TextFormat::GREEN."[Hunger Game] Please click on the 8th spawnpoint");
+				$player->sendMessage(TextFormat::GREEN."[SurvivalGames] spawnpoint 7 created");
+				$player->sendMessage(TextFormat::GREEN."[SurvivalGames] Please click on the 8th spawnpoint");
 				$this->pos7=new Vector3($this->pos7["x"]+0.5,$this->pos7["y"],$this->pos7["z"]+0.5);
 				break;	
 			case 8:
