@@ -34,15 +34,7 @@ use FChestReset\Main as FChestReset;
 use pocketmine\event\player\PlayerRespawnEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 
-class Main extends PluginBase implements Listener
-{
-	/*Status-------------
-	0.人数不足等待加入
-	1.人数足够等待倒计时
-	2.无敌状态
-	3.游戏进行
-	4.决赛状态
-	*/
+class Main extends PluginBase implements Listener{
 	private static $obj = null;
 	public static function getInstance()
 	{
@@ -120,7 +112,7 @@ class Main extends PluginBase implements Listener
 		{
 			if($this->gameStatus>=2)
 			{
-				$sender->sendMessage("[SurvivalGame] The game was started,you can't back to lobby.");
+				$sender->sendMessage("[SurvivalGames] The game was started,you can't back to lobby.");
 				return;
 			}
 			if(isset($this->players[$sender->getName()]))
@@ -128,8 +120,8 @@ class Main extends PluginBase implements Listener
 				unset($this->players[$sender->getName()]);
 				$sender->setLevel($this->signlevel);
 				$sender->teleport($this->signlevel->getSpawnLocation());
-				$sender->sendMessage("[SurvivalGame] Back to lobby...");
-				$this->sendToAll("[SurvivalGame] Player ".$sender->getName()." exit from game");
+				$sender->sendMessage("[SurvivalGames] Back to lobby...");
+				$this->sendToAll("[SurvivalGames] Player ".$sender->getName()." exit from game");
 				$this->changeStatusSign();
 				if($this->gameStatus==1 && count($this->players)<2)
 				{
@@ -147,7 +139,7 @@ class Main extends PluginBase implements Listener
 			}
 			else
 			{
-				$sender->sendMessage("[FSurvivalGame] You are not in the game.");
+				$sender->sendMessage("[SurvivalGames] You are not in the game.");
 			}
 			return true;
 		}
