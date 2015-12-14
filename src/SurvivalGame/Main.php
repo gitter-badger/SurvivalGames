@@ -428,26 +428,36 @@ class Main extends PluginBase implements Listener{
 			switch($this->lastTime)
 			{
 			case 1:
+				$this->sendToAll->sendTip(".$this->lastTime." seconds");
+				break;		
 			case 2:
+				$this->sendToAll->sendTip(".$this->lastTime." seconds");
+				break;				
 			case 3:
+				$this->sendToAll->sendTip(".$this->lastTime." seconds");
+				break;					
 			case 4:
+				$this->sendToAll->sendTip(".$this->lastTime." seconds");
+				break;				
 			case 5:
+				$this->sendToAll->sendTip(".$this->lastTime." seconds");
+				break;					
 			case 10:
 			//case 20:
 			case 30:
 				$this->sendToAll("[SurvivalGames] The game will start in ".$this->lastTime." seconds");
 				break;
 			case 60:
-				$this->sendToAll(" [SurvivalGames] The game will start in one minute");
+				$this->sendToAll(" [SurvivalGames] The game will start in 1 minute");
 				break;
 			case 90:
-				$this->sendToAll("[SurvivalGames] The game will start in one minute thirty seconds");
+				$this->sendToAll("[SurvivalGames] The game will start in 1 minute 30 seconds");
 				break;
 			case 120:
-				$this->sendToAll("[SurvivalGames] The game will start in two minutes");
+				$this->sendToAll("[SurvivalGames] The game will start in 2 minutes");
 				break;
 			case 150:
-				$this->sendToAll("[Survial Game] The game will start in two minutes thirty seconds");
+				$this->sendToAll("[Survial Game] The game will start in 2 minutes 30 seconds");
 				break;
 			case 0:
 				$this->gameStatus=2;
