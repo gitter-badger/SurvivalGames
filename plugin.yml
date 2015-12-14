@@ -1,9 +1,9 @@
-name: FSurvivalGame
-main: FSurvivalGame\Main
-version: "1.0.3(Translated by Anie)"
+name: SurvivalGame
+main: SurvivalGame\Main
+version: "1.0.3"
 api: [1.0.0]
 load: POSTWORLD
-author: FENGberd
+author: Driesboy
 commands:
  fsg:
   permission: FSurvivalGame.command.fsg
