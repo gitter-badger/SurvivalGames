@@ -391,7 +391,6 @@ class Main extends PluginBase implements Listener{
 		$this->getServer()->getLogger()->info($msg);
 		unset($pl,$msg);
 	}	
-	
 	public function gameTimber(){
 		if(!isset($this->lastpos) || $this->lastpos==array())
 		{
@@ -436,19 +435,19 @@ class Main extends PluginBase implements Listener{
 			switch($this->lastTime)
 			{
 			case 1:
-				$this->sendTipToAll(""$this->lastTime." seconds");
+				$this->sendTipToAll("start in ".$this->lastTime." seconds");
 				break;		
 			case 2:
-				$this->sendTipToAll(""$this->lastTime." seconds");
+				$this->sendTipToAll("start in ".$this->lastTime." seconds");
 				break;				
 			case 3:
-				$this->sendTipToAll(""$this->lastTime." seconds");
+				$this->sendTipToAll("start in ".$this->lastTime." seconds");
 				break;					
 			case 4:
-				$this->sendTipToAll(""$this->lastTime." seconds");
+				$this->sendTipToAll("start in ".$this->lastTime." seconds");
 				break;				
 			case 5:
-				$this->sendTipToAll(""$this->lastTime." seconds");
+				$this->sendTipToAll("start in ".$this->lastTime." seconds");
 				break;					
 			case 10:
 			//case 20:
