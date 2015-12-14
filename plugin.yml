@@ -29,5 +29,5 @@ permissions:
       description: set SurvivalGame
       default: op
    FSurvivalGame.touch.startgame:
-    description: click the sign and join the game
+    description: click the sign to join the game
     default: true
