@@ -383,6 +383,14 @@ class Main extends PluginBase implements Listener{
 		$this->getServer()->getLogger()->info($msg);
 		unset($pl,$msg);
 	}
+	public function sendTipToAll($msg){
+		foreach($this->players as $pl)
+		{
+			$this->getServer()->getPlayer($pl["id"])->sendTip($msg);
+		}
+		$this->getServer()->getLogger()->info($msg);
+		unset($pl,$msg);
+	}	
 	
 	public function gameTimber(){
 		if(!isset($this->lastpos) || $this->lastpos==array())
@@ -428,19 +436,19 @@ class Main extends PluginBase implements Listener{
 			switch($this->lastTime)
 			{
 			case 1:
-				$this->sendToAll->sendTip($this->lastTime." seconds");
+				$this->sendTipToAll(""$this->lastTime." seconds");
 				break;		
 			case 2:
-				$this->sendToAll->sendTip($this->lastTime." seconds");
+				$this->sendTipToAll(""$this->lastTime." seconds");
 				break;				
 			case 3:
-				$this->sendToAll->sendTip($this->lastTime." seconds");
+				$this->sendTipToAll(""$this->lastTime." seconds");
 				break;					
 			case 4:
-				$this->sendToAll->sendTip($this->lastTime." seconds");
+				$this->sendTipToAll(""$this->lastTime." seconds");
 				break;				
 			case 5:
-				$this->sendToAll->sendTip($this->lastTime." seconds");
+				$this->sendTipToAll(""$this->lastTime." seconds");
 				break;					
 			case 10:
 			//case 20:
@@ -457,7 +465,7 @@ class Main extends PluginBase implements Listener{
 				$this->sendToAll("[SurvivalGames] The game will start in 2 minutes");
 				break;
 			case 150:
-				$this->sendToAll("[Survial Game] The game will start in 2 minutes 30 seconds");
+				$this->sendToAll("[SurvivalGames] The game will start in 2 minutes 30 seconds");
 				break;
 			case 0:
 				$this->gameStatus=2;
