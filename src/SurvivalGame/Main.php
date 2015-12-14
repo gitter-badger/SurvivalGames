@@ -428,19 +428,19 @@ class Main extends PluginBase implements Listener{
 			switch($this->lastTime)
 			{
 			case 1:
-				$this->sendToAll->sendTip(.$this->lastTime." seconds");
+				$this->sendToAll->sendTip($this->lastTime." seconds");
 				break;		
 			case 2:
-				$this->sendToAll->sendTip(.$this->lastTime." seconds");
+				$this->sendToAll->sendTip($this->lastTime." seconds");
 				break;				
 			case 3:
-				$this->sendToAll->sendTip(.$this->lastTime." seconds");
+				$this->sendToAll->sendTip($this->lastTime." seconds");
 				break;					
 			case 4:
-				$this->sendToAll->sendTip(.$this->lastTime." seconds");
+				$this->sendToAll->sendTip($this->lastTime." seconds");
 				break;				
 			case 5:
-				$this->sendToAll->sendTip(.$this->lastTime." seconds");
+				$this->sendToAll->sendTip($this->lastTime." seconds");
 				break;					
 			case 10:
 			//case 20:
