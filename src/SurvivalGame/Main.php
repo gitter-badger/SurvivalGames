@@ -121,7 +121,7 @@ class Main extends PluginBase implements Listener{
 				$sender->setLevel($this->signlevel);
 				$sender->teleport($this->signlevel->getSpawnLocation());
 				$sender->sendMessage("[SurvivalGames] Back to lobby...");
-				$this->sendToAll("[SurvivalGames] Player ".$sender->getName()." exit from game");
+				$this->sendToAll("[SurvivalGames] Player  ".$sender->getName()."  exit from game");
 				$this->changeStatusSign();
 				if($this->gameStatus==1 && count($this->players)<2)
 				{
@@ -435,47 +435,47 @@ class Main extends PluginBase implements Listener{
 			switch($this->lastTime)
 			{
 			case 1:
-				$this->sendTipToAll("start in ".$this->lastTime." seconds");
+				$this->sendTipToAll("§6start in §b".$this->lastTime." seconds");
 				break;		
 			case 2:
-				$this->sendTipToAll("start in ".$this->lastTime." seconds");
+				$this->sendTipToAll("§6start in §b".$this->lastTime." seconds");
 				break;				
 			case 3:
-				$this->sendTipToAll("start in ".$this->lastTime." seconds");
+				$this->sendTipToAll("§6start in §b".$this->lastTime." seconds");
 				break;					
 			case 4:
-				$this->sendTipToAll("start in ".$this->lastTime." seconds");
+				$this->sendTipToAll("§6start in §b".$this->lastTime." seconds");
 				break;				
 			case 5:
-				$this->sendTipToAll("start in ".$this->lastTime." seconds");
+				$this->sendTipToAll("§6start in ".$this->lastTime." seconds");
 				break;					
 			case 10:
 			//case 20:
 			case 30:
-				$this->sendToAll("[SurvivalGames] The game will start in ".$this->lastTime." seconds");
+				$this->sendToAll("§6The game will start in §b".$this->lastTime." seconds");
 				break;
 			case 60:
-				$this->sendToAll(" [SurvivalGames] The game will start in 1 minute");
+				$this->sendToAll("§6The game will start in §b1 minute");
 				break;
 			case 90:
-				$this->sendToAll("[SurvivalGames] The game will start in 1 minute 30 seconds");
+				$this->sendToAll("§6The game will start in §b1 minute 30 seconds");
 				break;
 			case 120:
-				$this->sendToAll("[SurvivalGames] The game will start in 2 minutes");
+				$this->sendToAll("§6The game will start in §b2 minutes");
 				break;
 			case 150:
-				$this->sendToAll("[SurvivalGames] The game will start in 2 minutes 30 seconds");
+				$this->sendToAll("§6The game will start in §b2 minutes 30 seconds");
 				break;
 			case 0:
 				$this->gameStatus=2;
-				$this->sendToAll("[SurvivalGames] The game begins");
+				$this->sendTipToAll("§6Go!!!!!!");
 				$this->lastTime=$this->godTime;
 				$this->resetChest();
 				foreach($this->players as $key=>$val)
 				{
-					$p=$this->getServer()->getPlayer($val["id"]);
-					$p->setMaxHealth(25);
-					$p->setHealth(25);
+					$p=$this->getServer()->getPlayer($val["id"]);;
+					$p->setHealth(20);
+					$p->setFood(20)
 					$p->setLevel($this->level);
 				}
 				$this->all=count($this->players);
@@ -488,7 +488,7 @@ class Main extends PluginBase implements Listener{
 			if($this->lastTime<=0)
 			{
 				$this->gameStatus=3;
-				$this->sendToAll("[SurvivalGames] You are now longer prohibited");
+				$this->sendToAll("[SurvivalGames] You are now longer invisible");
 				$this->lastTime=$this->gameTime;
 				$this->resetChest();
 			}
@@ -497,15 +497,15 @@ class Main extends PluginBase implements Listener{
 		{
 			if(count($this->players)==1)
 			{
-				$this->sendToAll(" [SurvivalGames] Congratulations! You have won the game");
+				$this->sendToAll(" §6Congratulations! You have won the game");
 				foreach($this->players as &$pl)
 				{
 					$p=$this->getServer()->getPlayer($pl["id"]);
 					Server::getInstance()->broadcastMessage("[SurvivalGames] Congratulates to".$p->getName()."for whom that has won the game");
 					$p->setLevel($this->signlevel);
 					$p->getInventory()->clearAll();
-					$p->setMaxHealth(25);
-					$p->setHealth(25);
+					$p->setFood(20);
+					$p->setHealth(20);
 					$p->teleport($this->signlevel->getSpawnLocation());
 					unset($pl,$p);
 				}
