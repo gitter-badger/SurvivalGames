@@ -475,7 +475,7 @@ class Main extends PluginBase implements Listener{
 				{
 					$p=$this->getServer()->getPlayer($val["id"]);;
 					$p->setHealth(20);
-					$p->setFood(20)
+					$p->setFood(20);
 					$p->setLevel($this->level);
 				}
 				$this->all=count($this->players);
