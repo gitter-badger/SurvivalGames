@@ -362,6 +362,7 @@ class Main extends PluginBase implements Listener{
 			if(isset($this->players[$event->getEntity()->getName()]))
 			{
 				$this->ClearInv($event->getEntity());
+				$event->getEntity()->kill();
 				unset($this->players[$event->getEntity()->getName()]);
 				if(count($this->players)>1)
 				{
@@ -447,7 +448,7 @@ class Main extends PluginBase implements Listener{
 				$this->sendTipToAll("§6start in §b".$this->lastTime." seconds");
 				break;				
 			case 5:
-				$this->sendTipToAll("§6start in ".$this->lastTime." seconds");
+				$this->sendTipToAll("§6start in §b".$this->lastTime." seconds");
 				break;					
 			case 10:
 			//case 20:
@@ -531,10 +532,20 @@ class Main extends PluginBase implements Listener{
 			switch($this->lastTime)
 			{
 			case 1:
+				$this->sendTipToAll("§6deathmatch start in §b1 seconds");
+				break;
 			case 2:
+				$this->sendTipToAll("§6deathmatch start in §b2 seconds");
+				break;
 			case 3:
+				$this->sendTipToAll("§6deathmatch start in §b3 seconds");
+				break;
 			case 4:
+				$this->sendTipToAll("§6deathmatch start in §b4 seconds");
+				break;
 			case 5:
+				$this->sendTipToAll("§6deathmatch start in §b5 seconds");
+				break;
 			case 10:
 				$this->sendToAll("[SurvivalGames] ".$this->lastTime."seconds left for the death match");
 				break;
@@ -627,19 +638,19 @@ class Main extends PluginBase implements Listener{
 			switch($this->gameStatus)
 			{
 			case 0:
-				$sign->setText("§6Catching Fire","§bTap to join","§bplayer amount :".count($this->players),"");
+				$sign->setText("§6Catching Fire","§bTap to join","player amount :".count($this->players),"");
 				break;
 			case 1:
-				$sign->setText("§6Catching Fire","§bTap to join","§bplayer amount :".count($this->players),"§btime left :".$this->lastTime."§bsec");
+				$sign->setText("§6Catching Fire","§bTap to join","player amount :".count($this->players),"time left :".$this->lastTime."sec");
 				break;
 			case 2:
-				$sign->setText("§6Catching Fire","§bstarting right now","§bplayer amount :".count($this->players),"you are prohibited :".$this->lastTime."sec");
+				$sign->setText("§6Catching Fire","§bstarting right now","player amount :".count($this->players),"you are prohibited :".$this->lastTime."sec");
 				break;
 			case 3:
-				$sign->setText("§6Catching Fire","§brunning","§balive :".count($this->players)."/{$this->all}","§btime to the death match :".$this->lastTime."§bsec");
+				$sign->setText("§6Catching Fire","§brunning","§balive :".count($this->players)."/{$this->all}","time to the death match :".$this->lastTime."sec");
 				break;
 			case 4:
-				$sign->setText("§6Catching Fire","§bDM","§bplayer remains :".count($this->players)."/{$this->all}","§btime left :".$this->lastTime."§bsec");
+				$sign->setText("§6Catching Fire","§bDM","§bplayer remains :".count($this->players)."/{$this->all}","time left :".$this->lastTime."sec");
 				break;
 			}
 		}
