@@ -362,6 +362,7 @@ class Main extends PluginBase implements Listener{
 			if(isset($this->players[$event->getEntity()->getName()]))
 			{
 				$this->ClearInv($event->getEntity());
+				$this->Player::kick($reason = "");
 				$this->getPlayer()->Player::kick($reason = "dead");
 				unset($this->players[$event->getEntity()->getName()]);
 				if(count($this->players)>1)
