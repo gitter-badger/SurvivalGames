@@ -637,13 +637,13 @@ class Main extends PluginBase implements Listener{
 			switch($this->gameStatus)
 			{
 			case 0:
-				$sign->setText("§6Catching Fire","§bTap to join","player amount :".count($this->players),"");
+				$sign->setText("§6Catching Fire","§bTap to join","amount :".count($this->players),"");
 				break;
 			case 1:
-				$sign->setText("§6Catching Fire","§bTap to join","player amount :".count($this->players),"time left :".$this->lastTime."sec");
+				$sign->setText("§6Catching Fire","§bTap to join","amount :".count($this->players),"time left :".$this->lastTime."sec");
 				break;
 			case 2:
-				$sign->setText("§6Catching Fire","§bstarting right now","player amount :".count($this->players),"you are prohibited :".$this->lastTime."sec");
+				$sign->setText("§6Catching Fire","§bstarting right now","amount :".count($this->players),"you are prohibited :".$this->lastTime."sec");
 				break;
 			case 3:
 				$sign->setText("§6Catching Fire","§brunning","§balive :".count($this->players)."/{$this->all}","time to the death match :".$this->lastTime."sec");
