@@ -362,7 +362,6 @@ class Main extends PluginBase implements Listener{
 			if(isset($this->players[$event->getEntity()->getName()]))
 			{
 				$this->ClearInv($event->getEntity());
-				//helpme
 				unset($this->players[$event->getEntity()->getName()]);
 				if(count($this->players)>1)
 				{
