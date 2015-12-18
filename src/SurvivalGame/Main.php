@@ -637,19 +637,19 @@ class Main extends PluginBase implements Listener{
 			switch($this->gameStatus)
 			{
 			case 0:
-				$sign->setText("§6Catching Fire","§bTap to join","§bplayer amount :",count($this->players),"");
+				$sign->setText("§7[§aJoin§7] §b:§9"count($this->players)"/8","§bCatching Fire","§eSG 1");
 				break;
 			case 1:
-				$sign->setText("§6Catching Fire","§bTap to join","§bplayer amount :",count($this->players),"time left :".$this->lastTime."sec");
+				$sign->setText("§7[§aJoin§7] §b:§9"count($this->players)"/8","§bCatching Fire","§eSG 1");
 				break;
 			case 2:
-				$sign->setText("§6Catching Fire","§bstarting right now","§bplayer amount :",count($this->players),"you are prohibited :".$this->lastTime."sec");
+				$sign->setText("§7[§5Running§7] §b:§9"count($this->players)"/8","§bCatching Fire","§eSG 1");
 				break;
 			case 3:
-				$sign->setText("§6Catching Fire","§brunning","§balive :".count($this->players)."/{$this->all}","time to the death match :".$this->lastTime."sec");
+				$sign->setText("§7[§5Running§7] §b:§9"count($this->players)"/8","§bCatching Fire","§eSG 1")
 				break;
 			case 4:
-				$sign->setText("§6Catching Fire","§bDM","§bplayer remains :".count($this->players)."/{$this->all}","time left :".$this->lastTime."sec");
+				$sign->setText("§7[§cDM§7] §b:§9"count($this->players)"/8","§bCatching Fire","§eSG 1")
 				break;
 			}
 		}
