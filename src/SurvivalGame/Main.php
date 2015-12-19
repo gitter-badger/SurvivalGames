@@ -81,7 +81,7 @@ class Main extends PluginBase implements Listener{
 		}
 		if(!$this->config->exists("gameTime"))
 		{
-			$this->config->set("gameTime",120);
+			$this->config->set("gameTime",240);
 		}
 		if(!$this->config->exists("waitTime"))
 		{
