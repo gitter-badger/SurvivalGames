@@ -81,15 +81,15 @@ class Main extends PluginBase implements Listener{
 		}
 		if(!$this->config->exists("gameTime"))
 		{
-			$this->config->set("gameTime",300);
+			$this->config->set("gameTime",120);
 		}
 		if(!$this->config->exists("waitTime"))
 		{
-			$this->config->set("waitTime",180);
+			$this->config->set("waitTime",60);
 		}
 		if(!$this->config->exists("godTime"))
 		{
-			$this->config->set("godTime",15);
+			$this->config->set("godTime",60);
 		}
 		$this->endTime=(int)$this->config->get("endTime");//游戏时间
 		$this->gameTime=(int)$this->config->get("gameTime");//游戏时间
