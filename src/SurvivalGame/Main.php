@@ -649,7 +649,7 @@ class Main extends PluginBase implements Listener{
 				$sign->setText("§7[§5Running§7] §b:§9".count($this->players)."§9/8","§bCatching Fire","§eSG 1");
 				break;
 			case 4:
-				$sign->setText("§7[§cDM§7] §b:§9".count($this->players)"/8","§bCatching Fire","§eSG 1");
+				$sign->setText("§7[§cDM§7] §b:§9".count($this->players)."§9/8","§bCatching Fire","§eSG 1");
 				break;
 			}
 		}
