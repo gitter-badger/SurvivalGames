@@ -504,7 +504,6 @@ class Main extends PluginBase implements Listener{
 					Server::getInstance()->broadcastMessage("[SurvivalGames] Congratulates to".$p->getName()."for whom that has won the game");
 					$p->setLevel($this->signlevel);
 					$p->getInventory()->clearAll();
-					$p->setFood(20);
 					$p->setHealth(20);
 					$p->teleport($this->signlevel->getSpawnLocation());
 					unset($pl,$p);
@@ -586,8 +585,7 @@ class Main extends PluginBase implements Listener{
 					$p->setLevel($this->signlevel);
 					$p->teleport($this->signlevel->getSpawnLocation());
 					$p->getInventory()->clearAll();
-					$p->setMaxHealth(25);
-					$p->setHealth(25);
+					$p->setHealth(20);
 					unset($p,$pl);
 				}
 				$this->clearChest();
